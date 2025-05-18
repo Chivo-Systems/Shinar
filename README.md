@@ -5,7 +5,7 @@
 </div>
 
 Shinar is a lightweight toolchain and web UI for processing phone call transcriptions.
-It watches high-fidelity transcript files, uses OpenAI’s GPT-4.5 to:
+It watches high-fidelity transcript files, uses OpenAI’s GPT-4.xx to:
 
 - ✨ Clean up transcription errors
 - 🗣️ Infer speakers (Company, Client, or Speaker 1, Speaker 2…)
@@ -24,7 +24,7 @@ The easiest way to run Shinar is via Docker Compose.
 - Docker Engine
 - Docker Compose
 - A valid OpenAI API key
-- (Optional) `OPENAI_MODEL` for a custom model name
+- `OPENAI_MODEL` for setting the model
 - `WEBUI_USERNAME` & `WEBUI_PASSWORD` for web access
 
 ### Run
