@@ -4,7 +4,7 @@
   <p><em>Clean, annotate, and summarize call transcripts with GPT-4.5</em></p>
 </div>
 
-Shinar is a lightweight toolchain and web UI for processing phone call transcriptions.
+Shinar is a lightweight toolchain and web UI for processing phone call/Teams/Zoom/VoIP transcriptions.
 It watches high-fidelity transcript files, uses OpenAI’s GPT-4.xx to:
 
 - ✨ Clean up transcription errors
