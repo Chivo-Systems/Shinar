@@ -1,0 +1,8 @@
+.env
+.venv
+AI-Processed-Transcriptions/
+AI-Summary/
+output-transcriptions/
+source-audio/
+__pycache__/
+patch.diff
