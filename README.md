@@ -80,3 +80,11 @@ files land in `AI-Processed-Transcriptions/` and summaries in `AI-Summary/`.
 
 _Docker is the recommended method for reproducible, hassle-free
 deployment. The Nix shell provides a local alternative for development._
+
+## Use
+
+Once the container is spooled up and running, or is called directly via `start.py` (your choice) - the next step is to begin ingesting audio files. Audio files can be inserted to the source-audio folder, which is actively watched by the backend process. Files can be ingested any number of ways to that folder, including Rsync, FTP/SFTP, Syncthing, and any other tool that can programmatically put a file from one place to another. Guides on integration with off-the-shelf PBX systems are coming soon.
+
+Note: Certain regions have certain legal frameworks around data collection (EU, for example), use this tool responsibly.
+
+
