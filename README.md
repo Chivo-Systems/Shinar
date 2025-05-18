@@ -31,12 +31,12 @@ The easiest way to run Shinar is via Docker Compose.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-org/shinar.git
+   git clone https://github.com/Chivo-Systems/Shinar.git
    cd shinar
    ```
 2. Copy and configure your environment variables:
    ```bash
-   cp .env.example .env
+   cp env.example .env
    # Edit .env and set OPENAI_API, OPENAI_MODEL (optional),
    # WEBUI_USERNAME, WEBUI_PASSWORD, etc.
    ```
