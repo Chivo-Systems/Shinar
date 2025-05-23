@@ -12,6 +12,7 @@ with each segment labeled by speaker.
 """
 import os
 import time
+
 # Load .env file for environment configuration
 ENV_FILE = os.path.join(os.getcwd(), ".env")
 if os.path.exists(ENV_FILE):
@@ -22,15 +23,14 @@ if os.path.exists(ENV_FILE):
                 continue
             key, val = line.split("=", 1)
             os.environ.setdefault(key, val)
-from watchdog.observers import Observer
-from watchdog.events import PatternMatchingEventHandler
-
-import whisper
-import torch
 import numpy as np
-from whisper import audio as whisper_audio
+import torch
+import whisper
 from resemblyzer import VoiceEncoder
 from sklearn.cluster import AgglomerativeClustering
+from watchdog.events import PatternMatchingEventHandler
+from watchdog.observers import Observer
+from whisper import audio as whisper_audio
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # sample rate used by Whisper (Hz)
@@ -160,6 +160,7 @@ if __name__ == "__main__":
 
     # model and speaker count settings (defaults from .env via SHINAR_MODEL and SHINAR_LOW_MODEL)
     import argparse
+
     # Read model defaults from environment, fallback to small/tiny
     env_high = os.environ.get("SHINAR_MODEL", "small")
     env_low = os.environ.get("SHINAR_LOW_MODEL", "tiny")

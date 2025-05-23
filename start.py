@@ -8,10 +8,11 @@ Usage:
 Any arguments are forwarded to shinar.py.
 """
 import os
+import signal
 import subprocess
 import sys
 import time
-import signal
+
 
 def main():
     """
