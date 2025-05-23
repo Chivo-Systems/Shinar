@@ -5,8 +5,8 @@ LLM Processor: watches high-quality transcripts and processes them via OpenAI GP
 import os
 import sys
 import time
-import signal
-import subprocess
+
+from openai import OpenAI
 
 # Load .env for API key
 ENV_FILE = os.path.join(os.getcwd(), ".env")
@@ -18,9 +18,6 @@ if os.path.exists(ENV_FILE):
                 continue
             key, val = line.split("=", 1)
             os.environ.setdefault(key, val)
-
-import openai
-from openai import OpenAI
 
 # Directories and model config
 OUTPUT_DIR = os.path.join(os.getcwd(), 'output-transcriptions')
@@ -98,12 +95,19 @@ def process_file(path: str):
         {"role": "system", "content": PROMPT},
         {"role": "user", "content": content}
     ]
-    # Set up OpenAI client using API key from .env
+    # Set up OpenAI client using API key and optional base URL from .env
     api_key = os.environ.get('OPENAI_API')
     if not api_key:
         print("Error: OPENAI_API not set in environment.", file=sys.stderr)
         return
-    client = OpenAI(api_key=api_key)
+    
+    # Support custom OpenAI-compatible endpoints
+    base_url = os.environ.get('OPENAI_BASE_URL')
+    if base_url:
+        print(f"Using custom OpenAI endpoint: {base_url}")
+        client = OpenAI(api_key=api_key, base_url=base_url)
+    else:
+        client = OpenAI(api_key=api_key)
 
     try:
         resp = client.chat.completions.create(
@@ -124,8 +128,8 @@ def process_file(path: str):
 
 if __name__ == '__main__':
     # Watch OUTPUT_DIR for new high-quality transcripts
-    from watchdog.observers import Observer
     from watchdog.events import PatternMatchingEventHandler
+    from watchdog.observers import Observer
 
     class Handler(PatternMatchingEventHandler):
         def __init__(self):
