@@ -31,6 +31,7 @@ SUMMARY_DIR = os.path.join(os.getcwd(), 'AI-Summary')
 
 os.makedirs(AI_DIR, exist_ok=True)
 os.makedirs(SUMMARY_DIR, exist_ok=True)
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # LLM model name to use (can be set in .env as OPENAI_MODEL)
 MODEL = os.environ.get('OPENAI_MODEL', 'gpt-4.5')

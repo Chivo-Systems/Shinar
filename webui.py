@@ -3,7 +3,6 @@
 Web UI for Shinar speaker-diarized transcriptions.
 """
 import os
-import sys
 # Load .env for environment variables (e.g., WEBUI_USERNAME, WEBUI_PASSWORD)
 ENV_FILE = os.path.join(os.getcwd(), '.env')
 if os.path.exists(ENV_FILE):
@@ -321,8 +320,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 if __name__ == '__main__':
     # Ensure the output directory exists
-    if not os.path.isdir(OUTPUT_DIR):
-        print(f"Error: output directory '{OUTPUT_DIR}' not found.", file=sys.stderr)
-        sys.exit(1)
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
     # Run the Flask app
     app.run(host='0.0.0.0', port=5000)
