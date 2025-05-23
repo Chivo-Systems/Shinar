@@ -69,6 +69,7 @@ By default, the web UI runs on port 5000. Access via <http://localhost:5000>.
 | Variable         | Description                                        | Default     |
 |------------------|----------------------------------------------------|-------------|
 | `OPENAI_API`     | Your OpenAI API key                                | (required)  |
+| `OPENAI_BASE_URL`| OpenAI API base URL (for compatible endpoints)     | `https://api.openai.com/v1` |
 | `OPENAI_MODEL`   | GPT model to use (e.g. `gpt-4.5`)                  | `gpt-4.5`   |
 | `WEBUI_USERNAME` | Username for HTTP Basic Auth                      | (required)  |
 | `WEBUI_PASSWORD` | Password for HTTP Basic Auth                      | (required)  |
