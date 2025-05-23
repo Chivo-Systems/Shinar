@@ -6,3 +6,4 @@ output-transcriptions/
 source-audio/
 __pycache__/
 patch.diff
+.history/
