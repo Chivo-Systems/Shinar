@@ -3,6 +3,7 @@
 Web UI for Shinar speaker-diarized transcriptions.
 """
 import os
+import sys
 # Load .env for environment variables (e.g., WEBUI_USERNAME, WEBUI_PASSWORD)
 ENV_FILE = os.path.join(os.getcwd(), '.env')
 if os.path.exists(ENV_FILE):
