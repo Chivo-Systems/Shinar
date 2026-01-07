@@ -4,6 +4,7 @@ Web UI for Shinar speaker-diarized transcriptions.
 """
 import os
 import sys
+
 # Load .env for environment variables (e.g., WEBUI_USERNAME, WEBUI_PASSWORD)
 ENV_FILE = os.path.join(os.getcwd(), '.env')
 if os.path.exists(ENV_FILE):
@@ -19,9 +20,11 @@ if os.path.exists(ENV_FILE):
                 val = val[1:-1]
             os.environ.setdefault(key, val)
 
-from flask import Flask, render_template_string, abort, jsonify, request, Response
-from datetime import datetime
 import subprocess
+from datetime import datetime
+
+from flask import Flask, Response, abort, jsonify, render_template_string, request
+
 # Directory containing transcription Markdown files
 OUTPUT_DIR = os.path.join(os.getcwd(), 'output-transcriptions')
 # Directory containing original audio files
